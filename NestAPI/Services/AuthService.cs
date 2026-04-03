@@ -22,6 +22,16 @@ public class AuthService : IAuthService
         return new UserResponse { Username = user.Username, Role = user.Role };
     }
 
+    public async Task<UserResponse?> RegisterRoleAsync(RegisterRequest request, string role)
+    {
+        if (await _db.Users.AnyAsync(u => u.Username == request.Username)) return null;
+        var user = new User { Username = request.Username, PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password), Role = role};
+        _db.Users.Add(user);
+        await _db.SaveChangesAsync();
+        return new UserResponse { Username = user.Username, Role = user.Role };
+    }
+
+
     public async Task<AuthResponse?> LoginAsync(LoginRequest request)
     {
         var user = await _db.Users.FirstOrDefaultAsync(u => u.Username == request.Username);
