@@ -1,0 +1,70 @@
+## --- Visual Studio ---
+# Пользовательские настройки и кэш
+.vs/
+[Bb]in/
+[Obj]/
+*.user
+*.userosscache
+*.sln.docstates
+
+## --- .NET Core ---
+# Файлы сборки проекта
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## --- База данных (SQLite) ---
+# Исключаем локальные файлы БД, чтобы не засорять репозиторий
+*.db
+*.db-shm
+*.db-wal
+
+## --- Frontend ---
+node_modules/
+dist/
+.env.local
+
+## --- Инструменты ---
+.pfx
+.publishsettings
+# Логи
+*.log
+
+## old
+
+## Сборка и временные файлы .NET
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+publish/
+
+## Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+.vsconfig
+
+## Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## База данных SQLite
+*.db
+*.db-shm
+*.db-wal
+
+## Логи и настройки среды
+*.log
+.env
+
+
+## Пакеты (NuGet)
+*.nupkg
+.nuget/
